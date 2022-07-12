@@ -1,9 +1,7 @@
+import LoginForm from "./LoginForm";
+
 function App() {
-  return (
-    <div>
-      Hello world
-    </div>
-  );
+  return <LoginForm />
 }
 
 export default App;
