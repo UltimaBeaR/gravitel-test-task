@@ -1,33 +1,10 @@
-import { gql, useMutation } from '@apollo/client';
+import { useGqlLoginMutation } from "hooks/graphql/loginMutation";
 
-interface GqlLoginData {
-  login: {
-    token: string
-  }
-}
-
-const GQL_LOGIN = gql`
-  mutation Login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
-      token
-    }
-  }
-`;
-
-function App() {
-  const [
-    gqlLogin,
-    {
-      data: gqlLoginData,
-      loading: gqlLoginLoading,
-      error: gqlLoginError
-    }
-  ] = useMutation<GqlLoginData>(GQL_LOGIN);
+function LoginForm() {
+  const { gqlLogin, gqlLoginData, gqlLoginLoading, gqlLoginError } = useGqlLoginMutation();
 
   const loginHandler = async () => {
-    await gqlLogin({
-      variables: { username: "UserOne", password: "pass" }
-    });
+    await gqlLogin("UserOne", "pass");
   };
 
   return (
@@ -40,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginForm;

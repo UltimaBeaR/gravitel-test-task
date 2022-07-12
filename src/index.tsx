@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from 'components/App';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { appConfig } from 'appConfig';
+import 'services';
 
 import './main.scss';
 
