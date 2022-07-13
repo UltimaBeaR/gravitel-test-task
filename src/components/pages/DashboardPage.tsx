@@ -3,10 +3,10 @@ import LogoutButton from "components/LogoutButton";
 
 function DashboardPage() {
   return (
-    <>
+    <div>
       <Dashboard />
       <LogoutButton />
-    </>
+    </div>
   );
 }
 

@@ -28,10 +28,6 @@ function DashboardDiagram(props: DashboardDiagramProps) {
 function Dashboard() {
   const { gqlDashboardData, gqlDashboardLoading, gqlDashboardError } = useGqlDashboardQuery();
 
-  if (gqlDashboardData) {
-    console.log(gqlDashboardData);
-  }
-
   if (gqlDashboardLoading) {
     return (
       <div>Загрузка данных...</div>

@@ -1,8 +1,12 @@
 import LoginForm from "components/LoginForm";
 
+import classes from './LoginPage.module.scss';
+
 function LoginPage() {
   return (
-    <LoginForm />
+    <div className={classes.offsets}>
+      <LoginForm />
+    </div>
   );
 }
 

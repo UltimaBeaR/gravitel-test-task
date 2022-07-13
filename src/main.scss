@@ -1,3 +1,22 @@
+@import './reset';
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
+
 body {
-  background-color: beige;
+  font: normal 16px Arial, Helvetica, sans-serif;
+  letter-spacing: 0.05em;
+  color: rgb(38, 38, 38);
+}
+
+.disable-interaction {
+  pointer-events: none;
+  user-select: none;
+
+  &:focus {
+    outline: 0;
+  }
+
+  *:focus {
+    outline: 0;
+  }
 }
