@@ -1,21 +1,18 @@
-import { useEffect } from 'react';
-import { useAppDispatch } from 'hooks/redux';
-import { setIsAuthenticated } from 'store/authSlice';
-import { storageService } from 'services';
-import Layout from './Layout';
+
+import { useAuthInit } from 'hooks/auth';
+import RouteConfig from './routing/RouteConfig';
 
 function App() {
-  const dispatch = useAppDispatch();
+  const authIsInitialized = useAuthInit();
 
-  useEffect(() => {
-    const jwtAccessToken = storageService.getJwtAccessToken();
-    const isAuthenticated = jwtAccessToken !== null;
-
-    dispatch(setIsAuthenticated(isAuthenticated));
-  }, [dispatch]);
+  if (!authIsInitialized) {
+    return (
+      <div>Инициализация...</div>
+    );
+  }
 
   return (
-    <Layout />
+    <RouteConfig />
   );
 }
 

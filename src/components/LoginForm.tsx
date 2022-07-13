@@ -1,7 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import { useGqlLoginMutation } from 'hooks/graphql/loginMutation';
 
 function LoginForm() {
   const { gqlLogin, gqlLoginData, gqlLoginLoading, gqlLoginError } = useGqlLoginMutation();
+
+  const navigate = useNavigate();
+
+  if (gqlLoginData) {
+    navigate('/');
+    return <div>Переадресация...</div>;
+  }
 
   const loginHandler = async () => {
     await gqlLogin('UserOne', 'pass');
@@ -9,7 +17,6 @@ function LoginForm() {
 
   return (
     <div>
-      Hello world { !gqlLoginError && gqlLoginData?.login.token }
       { gqlLoginLoading && 'loading...' }
       { gqlLoginError && 'error ' + JSON.stringify(gqlLoginError) }
       <button onClick={loginHandler}>Login</button>

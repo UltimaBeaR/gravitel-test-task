@@ -1,6 +1,6 @@
 import { useAuth } from 'hooks/auth';
 
-function LoginForm() {
+function LogoutButton() {
   const { logout: logOut } = useAuth();
 
   const logoutHandler = async () => {
@@ -12,4 +12,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default LogoutButton;
