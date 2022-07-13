@@ -1,5 +1,6 @@
 import { useAppSelector } from 'hooks';
 import { selectIsAuthenticated } from 'store/authSlice';
+import Dashboard from './Dashboard';
 import LoginForm from './LoginForm';
 
 function Layout() {
@@ -7,8 +8,9 @@ function Layout() {
 
   return (
     <div>
-      Layout. Аутентификация: { isAuthenticated ? 'Да' : 'Нет' }
-      <LoginForm />
+      Layout
+      { !isAuthenticated && <LoginForm /> }
+      { isAuthenticated && <Dashboard /> }
     </div>
   );
 }

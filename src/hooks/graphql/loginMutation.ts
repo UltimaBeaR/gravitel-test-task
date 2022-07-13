@@ -28,24 +28,24 @@ export function useGqlLoginMutation() {
   };
 
   const [
-    gqlLoginMutation,
+    mutation,
     {
-      data: gqlLoginData,
-      loading: gqlLoginLoading,
-      error: gqlLoginError
+      data,
+      loading,
+      error
     }
   ] = useMutation<GqlLoginData>(GQL_LOGIN, { onCompleted: gqlLoginCompletedHandler });
 
   const gqlLogin = async (username: string, password: string) => {
-    await gqlLoginMutation({
+    await mutation({
       variables: { username: username, password: password }
     });
   };
 
   return {
     gqlLogin,
-    gqlLoginData,
-    gqlLoginLoading,
-    gqlLoginError
+    gqlLoginData: data,
+    gqlLoginLoading: loading,
+    gqlLoginError: error
   };
 }

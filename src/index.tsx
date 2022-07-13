@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider as ReduxProvider } from 'react-redux'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 import App from 'components/App';
-import { appConfig } from 'appConfig';
+import { apolloClient } from 'appoloClient';
 import { store } from 'store';
 import 'main.scss';
-
-const apolloClient = new ApolloClient({
-  uri: appConfig.graphqlUrl,
-  cache: new InMemoryCache(),
-});
 
 const rootElement = (
   <React.StrictMode>
