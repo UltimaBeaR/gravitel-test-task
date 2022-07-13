@@ -1,0 +1,31 @@
+.root {
+  background-color: #F5F5F5;
+}
+
+$diagram-diameter: 218px;
+
+.diagram {
+  width: $diagram-diameter;
+  height: $diagram-diameter;
+
+  text-align: center;
+
+  display: table;
+
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.text-block {
+  width: 100%;
+
+  td:first-of-type {
+    text-align: left;
+  }
+
+  td:last-of-type {
+    text-align: right;
+  }
+}

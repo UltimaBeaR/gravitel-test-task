@@ -1,29 +1,7 @@
-import { useMemo } from 'react';
 import { useGqlDashboardQuery } from 'hooks/graphql/dashboardQuery';
+import DashboardDiagram from './DashboardDiagram';
 
-interface DashboardDiagramProps {
-  name: string,
-  active: number,
-  inactive: number,
-  completed: number
-}
-
-function DashboardDiagram(props: DashboardDiagramProps) {
-  const total = useMemo(
-    () => props.active + props.inactive + props.completed,
-    [props.active, props.inactive, props.completed]
-  );
-
-  return (
-    <div>
-      <div>{props.name}</div>
-      <div>Всего: {total}</div>
-      <div>Активных: {props.active}</div>
-      <div>Неактивных: {props.inactive}</div>
-      <div>Завершенных: {props.completed}</div>
-    </div>
-  )
-}
+import classes from './Dashboard.module.scss';
 
 function Dashboard() {
   const { gqlDashboardData, gqlDashboardLoading, gqlDashboardError } = useGqlDashboardQuery();
@@ -41,7 +19,7 @@ function Dashboard() {
   }
 
   return (
-    <div>
+    <div className={classes.dashboard}>
       <DashboardDiagram name='Сценарии' {...gqlDashboardData!.dashboard.scenarios} />
       <DashboardDiagram name='Списки' {...gqlDashboardData!.dashboard.lists} />
       <DashboardDiagram name='Диалоги' {...gqlDashboardData!.dashboard.dialogs} />
