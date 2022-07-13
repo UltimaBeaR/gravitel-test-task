@@ -9,12 +9,14 @@
   },
   "dependencies": {
     "@apollo/client": "3.6.9",
+    "@reduxjs/toolkit": "1.8.3",
     "@types/node": "16.11.43",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "graphql": "16.5.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-redux": "8.0.2"
   },
   "devDependencies": {
     "react-scripts": "5.0.1",
