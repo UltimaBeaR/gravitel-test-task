@@ -1,6 +1,6 @@
 .dashboard {
   display: flex;
   gap: 80px;
-
-  // TODO: сделать мобильную верстку тут брейкпоинтом
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

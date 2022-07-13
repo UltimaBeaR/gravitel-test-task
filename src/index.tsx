@@ -6,7 +6,9 @@ import { ApolloProvider } from '@apollo/client';
 import App from 'components/App';
 import { apolloClient } from 'apolloClient';
 import { store } from 'store';
+
 import 'main.scss';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const rootElement = (
   <React.StrictMode>

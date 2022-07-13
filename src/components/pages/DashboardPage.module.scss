@@ -6,4 +6,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
+
+  h2 {
+    color: rgb(137, 123, 143);
+    font-size: 14px;
+    font-weight: bold;
+  }
 }

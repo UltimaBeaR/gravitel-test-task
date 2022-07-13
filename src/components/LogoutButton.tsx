@@ -8,7 +8,7 @@ function LogoutButton() {
   };
 
   return (
-    <button onClick={logoutHandler}>Logout</button>
+    <button onClick={logoutHandler} title='Выход'><i className="fa-solid fa-right-from-bracket"></i></button>
   );
 }
 
