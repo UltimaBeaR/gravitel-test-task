@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch } from 'hooks/redux';
 import { setIsAuthenticated } from 'store/authSlice';
 import { storageService } from 'services';
 import Layout from './Layout';
@@ -12,7 +12,7 @@ function App() {
     const isAuthenticated = jwtAccessToken !== null;
 
     dispatch(setIsAuthenticated(isAuthenticated));
-  }, [ dispatch ]);
+  }, [dispatch]);
 
   return (
     <Layout />

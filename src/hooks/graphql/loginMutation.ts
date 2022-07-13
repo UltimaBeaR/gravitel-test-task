@@ -1,7 +1,5 @@
 import { gql, useMutation } from '@apollo/client';
-import { useAppDispatch } from 'hooks';
-import { storageService } from 'services';
-import { setIsAuthenticated } from 'store/authSlice';
+import { useAuth } from 'hooks/auth';
 
 export interface GqlLoginData {
   login: {
@@ -18,13 +16,11 @@ const GQL_LOGIN = gql`
 `;
 
 export function useGqlLoginMutation() {
-  const dispatch = useAppDispatch();
+  const { login: logIn, logout: logOut } = useAuth();
 
   const gqlLoginCompletedHandler = (data: GqlLoginData) => {
     const jwtAccessToken = data.login.token;
-
-    storageService.setJwtAccessToken(jwtAccessToken);
-    dispatch(setIsAuthenticated(true));
+    logIn(jwtAccessToken);
   };
 
   const [
@@ -37,8 +33,7 @@ export function useGqlLoginMutation() {
   ] = useMutation<GqlLoginData>(GQL_LOGIN, { onCompleted: gqlLoginCompletedHandler });
 
   const gqlLogin = async (username: string, password: string) => {
-    storageService.setJwtAccessToken(null);
-    dispatch(setIsAuthenticated(false));
+    logOut();
 
     await mutation({
       variables: { username: username, password: password }

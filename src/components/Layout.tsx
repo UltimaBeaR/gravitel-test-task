@@ -1,16 +1,16 @@
-import { useAppSelector } from 'hooks';
-import { selectIsAuthenticated } from 'store/authSlice';
+import { useAuth } from 'hooks/auth';
 import Dashboard from './Dashboard';
 import LoginForm from './LoginForm';
+import LogoutButton from './LogoutButton';
 
 function Layout() {
-  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const { isLoggedIn } = useAuth();
 
   return (
     <div>
       Layout
-      { !isAuthenticated && <LoginForm /> }
-      { isAuthenticated && <Dashboard /> }
+      { !isLoggedIn && <LoginForm /> }
+      { isLoggedIn && <><Dashboard /><LogoutButton /></> }
     </div>
   );
 }

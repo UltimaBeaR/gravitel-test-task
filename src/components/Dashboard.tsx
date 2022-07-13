@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useGqlDashboardQuery } from 'hooks/graphql/dashboardQuery';
 
 interface DashboardDiagramProps {
@@ -8,7 +9,10 @@ interface DashboardDiagramProps {
 }
 
 function DashboardDiagram(props: DashboardDiagramProps) {
-  const total = props.active + props.inactive + props.completed;
+  const total = useMemo(
+    () => props.active + props.inactive + props.completed,
+    [props.active, props.inactive, props.completed]
+  );
 
   return (
     <div>
