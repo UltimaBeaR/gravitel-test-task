@@ -8,7 +8,7 @@ function Dashboard() {
 
   if (gqlDashboardLoading) {
     return (
-      <div>Загрузка данных...</div>
+      <div>Загрузка данных <span className='small-loader small-loader__visible' /></div>
     );
   }
 

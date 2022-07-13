@@ -18,3 +18,27 @@ body {
     outline: 0;
   }
 }
+
+@keyframes loader {
+  0% { transform: rotate(0deg); }
+  99% { transform: rotate(360deg); }
+}
+
+.small-loader {
+  &:after {
+    display: inline-block;
+    content: "\f110";
+    visibility: hidden;
+    opacity: 0;
+    font-family: FontAwesome;
+    font-size: 16px;
+    line-height: 16px;
+    transition: opacity 0.5s ease-out;
+  }
+
+  &__visible:after {
+    visibility: visible;
+    opacity: 1;
+    animation: loader 1s infinite linear;
+  }
+}

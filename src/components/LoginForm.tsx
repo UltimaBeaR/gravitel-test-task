@@ -42,7 +42,7 @@ function LoginForm() {
       <p className={classes.slogan}>Уникальная технология доступная для вашего бизнеса уже сейчас!</p>
       <input ref={loginInputRef} className={classes.input} type='text' placeholder='Логин' onInput={inputHandler} />
       <input ref={passwordInputRef} className={classes.input} type='password' placeholder='Пароль' onInput={inputHandler} />
-      <button className={classes.button} type='submit'>Войти&nbsp;&nbsp;<span className={`${classes['button-loader']} ${gqlLoginLoading ? classes.visible : ''}`} /></button>
+      <button className={classes.button} type='submit'>Войти&nbsp;&nbsp;<span className={`small-loader ${gqlLoginLoading ? 'small-loader__visible' : ''}`} /></button>
       { showError && gqlLoginError && <p className={classes['login-error']}>Ошибка входа</p> }
     </form>
   );

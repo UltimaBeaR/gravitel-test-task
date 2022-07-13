@@ -10,7 +10,9 @@ function DashboardPage() {
         <h2>Сводка</h2>
         <LogoutButton />
       </div>
-      <Dashboard />
+      <div className={classes.content}>
+        <Dashboard />
+      </div>
     </div>
   );
 }
