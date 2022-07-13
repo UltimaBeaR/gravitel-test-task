@@ -1,18 +1,18 @@
 import { gql, useQuery } from '@apollo/client';
 
-interface GqlStatistic {
+export interface GqlStatistic {
   active: number,
   inactive: number,
   completed: number
 }
 
-interface GqlDashboardStat {
+export interface GqlDashboardStat {
   scenarios: GqlStatistic,
   lists: GqlStatistic,
   dialogs: GqlStatistic
 }
 
-interface GqlDashboardData {
+export interface GqlDashboardData {
   dashboard: GqlDashboardStat
 }
 

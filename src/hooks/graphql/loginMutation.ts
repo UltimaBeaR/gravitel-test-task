@@ -3,7 +3,7 @@ import { useAppDispatch } from 'hooks';
 import { storageService } from 'services';
 import { setIsAuthenticated } from 'store/authSlice';
 
-interface GqlLoginData {
+export interface GqlLoginData {
   login: {
     token: string
   }
@@ -37,6 +37,9 @@ export function useGqlLoginMutation() {
   ] = useMutation<GqlLoginData>(GQL_LOGIN, { onCompleted: gqlLoginCompletedHandler });
 
   const gqlLogin = async (username: string, password: string) => {
+    storageService.setJwtAccessToken(null);
+    dispatch(setIsAuthenticated(false));
+
     await mutation({
       variables: { username: username, password: password }
     });
